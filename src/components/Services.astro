@@ -17,6 +17,24 @@ const icons: Record<string, string> = {
       <p class="section-subtitle mx-auto">{site.services.subtitle}</p>
     </div>
 
+    <div class="fade-in mb-12 grid items-center gap-8 overflow-hidden rounded-2xl bg-white p-6 shadow-card lg:grid-cols-2 lg:p-8">
+      <img
+        src={site.images.familyTree}
+        alt="Семейные корни и внутренняя опора — символ работы с отношениями и самопознанием"
+        class="mx-auto max-h-80 w-full rounded-xl object-contain"
+        width="400"
+        height="500"
+        loading="lazy"
+      />
+      <div class="text-center lg:text-left">
+        <h3 class="mb-3 font-serif text-2xl font-medium text-stone">Работа с корнями и отношениями</h3>
+        <p class="text-stone-muted leading-relaxed">
+          Многие наши паттерны уходят корнями в семейную историю. В работе мы исследуем не только текущие трудности,
+          но и то, как прошлый опыт влияет на вашу жизнь сегодня — чтобы обрести опору и двигаться вперёд осознанно.
+        </p>
+      </div>
+    </div>
+
     <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
       {
         site.services.items.map((service, index) => (

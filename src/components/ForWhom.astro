@@ -5,10 +5,18 @@ import site from '../content/site.json';
 <section class="section-padding bg-sage/5">
   <div class="mx-auto max-w-6xl">
     <div class="fade-in grid gap-10 lg:grid-cols-2 lg:items-center">
-      <blockquote class="font-serif text-2xl font-medium leading-relaxed text-stone sm:text-3xl">
-        «{site.forWhom.quote}»
-      </blockquote>
+      <img
+        src={site.images.portrait}
+        alt={`${site.psychologist.name} — психолог`}
+        class="mx-auto w-full max-w-md rounded-2xl object-cover shadow-card lg:max-w-none"
+        width="500"
+        height="650"
+        loading="lazy"
+      />
       <div>
+        <blockquote class="mb-8 font-serif text-2xl font-medium leading-relaxed text-stone sm:text-3xl">
+          «{site.forWhom.quote}»
+        </blockquote>
         <h2 class="mb-6 font-serif text-2xl font-medium text-stone">Для кого моя работа</h2>
         <ul class="space-y-3">
           {

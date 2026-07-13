@@ -3,15 +3,23 @@
     "title": "Марина Шувалова — психолог | Онлайн консультации",
     "description": "Практикующий психолог Марина Шувалова. Работа с тревогой, отношениями, самооценкой и внутренними конфликтами. Онлайн-консультации и нумерологический разбор.",
     "siteUrl": "https://example.com",
-    "ogImage": "/images/og-image.jpg",
+    "ogImage": "/images/og-image.png",
     "formspreeId": "YOUR_FORMSPREE_ID"
   },
   "psychologist": {
     "name": "Марина Шувалова",
     "title": "Практикующий психолог",
     "tagline": "Меня зовут Марина — помогаю обрести внутреннюю опору и научиться жить осознаннее",
-    "photo": "/images/photo.jpg",
+    "photo": "/images/marina-hero.png",
     "city": "Россия"
+  },
+  "images": {
+    "hero": "/images/marina-hero.png",
+    "about": "/images/marina-about.png",
+    "portrait": "/images/marina-portrait.png",
+    "atmosphere": "/images/atmosphere-notebook.png",
+    "familyTree": "/images/family-tree.png",
+    "ogImage": "/images/og-image.png"
   },
   "hero": {
     "headline": "Пространство для внутренней опоры",

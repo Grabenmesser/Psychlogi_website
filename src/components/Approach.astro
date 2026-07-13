@@ -9,6 +9,17 @@ import site from '../content/site.json';
       <p class="section-subtitle mx-auto">{site.approach.subtitle}</p>
     </div>
 
+    <div class="fade-in mb-12 overflow-hidden rounded-2xl shadow-card">
+      <img
+        src={site.images.atmosphere}
+        alt="Спокойное пространство для размышлений и работы над собой"
+        class="h-48 w-full object-cover sm:h-64 lg:h-72"
+        width="1200"
+        height="400"
+        loading="lazy"
+      />
+    </div>
+
     <div class="grid gap-6 sm:grid-cols-2">
       {
         site.approach.items.map((item, index) => (
