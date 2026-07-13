@@ -1,0 +1,104 @@
+---
+import site from '../content/site.json';
+---
+
+<header
+  id="header"
+  class="fixed top-0 z-50 w-full border-b border-stone/5 bg-cream/90 backdrop-blur-md transition-shadow duration-300"
+>
+  <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+    <a href="/" class="font-serif text-xl font-medium text-stone sm:text-2xl">
+      {site.psychologist.name.split(' ')[0]}
+      <span class="text-sage"> {site.psychologist.name.split(' ')[1]}</span>
+    </a>
+
+    <nav class="hidden items-center gap-8 md:flex" aria-label="Основная навигация">
+      {
+        site.navigation.map((item) => (
+          <a
+            href={item.href}
+            class="text-sm font-medium text-stone-muted transition-colors hover:text-sage"
+          >
+            {item.label}
+          </a>
+        ))
+      }
+    </nav>
+
+    <div class="flex items-center gap-3">
+      <a href="#contact" class="btn-primary hidden text-sm sm:inline-flex">
+        Записаться
+      </a>
+
+      <button
+        id="menu-toggle"
+        type="button"
+        class="flex h-10 w-10 items-center justify-center rounded-lg text-stone md:hidden"
+        aria-label="Открыть меню"
+        aria-expanded="false"
+      >
+        <svg id="menu-icon" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+        <svg id="close-icon" class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <nav
+    id="mobile-menu"
+    class="hidden border-t border-stone/5 bg-cream px-4 py-4 md:hidden"
+    aria-label="Мобильная навигация"
+  >
+    <div class="flex flex-col gap-4">
+      {
+        site.navigation.map((item) => (
+          <a
+            href={item.href}
+            class="mobile-nav-link text-base font-medium text-stone-muted transition-colors hover:text-sage"
+          >
+            {item.label}
+          </a>
+        ))
+      }
+      <a href="#contact" class="btn-primary mt-2 text-center mobile-nav-link">
+        Записаться
+      </a>
+    </div>
+  </nav>
+</header>
+
+<script>
+  const toggle = document.getElementById('menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+  const menuIcon = document.getElementById('menu-icon');
+  const closeIcon = document.getElementById('close-icon');
+
+  toggle?.addEventListener('click', () => {
+    const isOpen = !menu?.classList.contains('hidden');
+    menu?.classList.toggle('hidden');
+    menuIcon?.classList.toggle('hidden');
+    closeIcon?.classList.toggle('hidden');
+    toggle.setAttribute('aria-expanded', String(!isOpen));
+  });
+
+  document.querySelectorAll('.mobile-nav-link').forEach((link) => {
+    link.addEventListener('click', () => {
+      menu?.classList.add('hidden');
+      menuIcon?.classList.remove('hidden');
+      closeIcon?.classList.add('hidden');
+      toggle?.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  window.addEventListener('scroll', () => {
+    const header = document.getElementById('header');
+    if (window.scrollY > 20) {
+      header?.classList.add('shadow-soft');
+    } else {
+      header?.classList.remove('shadow-soft');
+    }
+  });
+</script>

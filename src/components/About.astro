@@ -1,0 +1,41 @@
+---
+import site from '../content/site.json';
+---
+
+<section id="about" class="section-padding bg-white">
+  <div class="mx-auto max-w-6xl">
+    <div class="fade-in mb-12 text-center">
+      <h2 class="section-title">{site.about.title}</h2>
+    </div>
+
+    <div class="grid items-start gap-12 lg:grid-cols-5 lg:gap-16">
+      <div class="fade-in lg:col-span-3">
+        <div class="space-y-5 text-lg leading-relaxed text-stone-muted">
+          {
+            site.about.paragraphs.map((paragraph) => (
+              <p>{paragraph}</p>
+            ))
+          }
+        </div>
+      </div>
+
+      <div class="fade-in lg:col-span-2">
+        <div class="card">
+          <h3 class="mb-6 font-serif text-2xl font-medium text-stone">Образование и опыт</h3>
+          <ul class="space-y-4">
+            {
+              site.about.credentials.map((item) => (
+                <li class="flex gap-3 text-stone-muted">
+                  <svg class="mt-1 h-5 w-5 shrink-0 text-sage" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>{item}</span>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

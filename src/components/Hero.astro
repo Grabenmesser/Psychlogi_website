@@ -1,0 +1,49 @@
+---
+import site from '../content/site.json';
+---
+
+<section class="relative overflow-hidden pt-24 lg:pt-32">
+  <div class="section-padding pb-16 lg:pb-24">
+    <div class="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-2 lg:gap-16">
+      <div class="fade-in order-2 lg:order-1">
+        <p class="mb-3 text-sm font-semibold uppercase tracking-widest text-sage">
+          {site.psychologist.title}
+        </p>
+        <h1 class="mb-6 font-serif text-4xl font-medium leading-tight text-stone sm:text-5xl lg:text-6xl">
+          {site.hero.headline}
+        </h1>
+        <p class="mb-4 text-xl text-stone-muted">
+          {site.psychologist.tagline}
+        </p>
+        <p class="mb-8 text-lg text-stone-muted">
+          {site.hero.subheadline}
+        </p>
+        <div class="flex flex-col gap-4 sm:flex-row">
+          <a href="#contact" class="btn-primary">
+            {site.hero.cta}
+          </a>
+          <a href="#about" class="btn-outline">
+            Узнать больше
+          </a>
+        </div>
+      </div>
+
+      <div class="fade-in order-1 lg:order-2">
+        <div class="relative mx-auto max-w-md lg:max-w-none">
+          <div class="absolute -inset-4 rounded-3xl bg-sage/10 lg:-inset-6"></div>
+          <img
+            src={site.psychologist.photo}
+            alt={`Фото психолога ${site.psychologist.name}`}
+            class="relative aspect-[4/5] w-full rounded-2xl object-cover shadow-card"
+            width="600"
+            height="750"
+            loading="eager"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="absolute -right-32 -top-32 h-96 w-96 rounded-full bg-sage/5 blur-3xl" aria-hidden="true"></div>
+  <div class="absolute -bottom-32 -left-32 h-96 w-96 rounded-full bg-sage/5 blur-3xl" aria-hidden="true"></div>
+</section>

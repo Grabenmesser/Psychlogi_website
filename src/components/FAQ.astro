@@ -1,0 +1,32 @@
+---
+import site from '../content/site.json';
+---
+
+<section id="faq" class="section-padding">
+  <div class="mx-auto max-w-3xl">
+    <div class="fade-in mb-12 text-center">
+      <h2 class="section-title">{site.faq.title}</h2>
+    </div>
+
+    <div class="space-y-4">
+      {
+        site.faq.items.map((item, index) => (
+          <details class="card fade-in group" style={`transition-delay: ${index * 60}ms`}>
+            <summary class="flex cursor-pointer list-none items-center justify-between font-medium text-stone">
+              <span class="pr-4">{item.question}</span>
+              <svg
+                class="h-5 w-5 shrink-0 text-sage transition-transform group-open:rotate-180"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </summary>
+            <p class="mt-4 text-stone-muted leading-relaxed">{item.answer}</p>
+          </details>
+        ))
+      }
+    </div>
+  </div>
+</section>

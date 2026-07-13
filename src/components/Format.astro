@@ -1,0 +1,66 @@
+---
+import site from '../content/site.json';
+---
+
+<section id="format" class="section-padding bg-white">
+  <div class="mx-auto max-w-6xl">
+    <div class="fade-in mb-12 text-center">
+      <h2 class="section-title">{site.format.title}</h2>
+      <p class="section-subtitle mx-auto">
+        Выберите удобный для вас способ — очно или онлайн
+      </p>
+    </div>
+
+    <div class="grid gap-8 md:grid-cols-2">
+      <div class="card fade-in">
+        <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-sage/10">
+          <svg class="h-6 w-6 text-sage" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
+        </div>
+        <h3 class="mb-3 font-serif text-2xl font-medium text-stone">
+          {site.format.offline.title}
+        </h3>
+        <p class="mb-4 text-stone-muted leading-relaxed">
+          {site.format.offline.description}
+        </p>
+        <p class="mb-4 font-medium text-stone">{site.format.offline.address}</p>
+        <a
+          href={site.format.offline.mapUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 text-sage transition-colors hover:text-sage-dark"
+        >
+          Открыть на карте
+          <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+          </svg>
+        </a>
+      </div>
+
+      <div class="card fade-in" style="transition-delay: 100ms">
+        <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-sage/10">
+          <svg class="h-6 w-6 text-sage" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+          </svg>
+        </div>
+        <h3 class="mb-3 font-serif text-2xl font-medium text-stone">
+          {site.format.online.title}
+        </h3>
+        <p class="mb-4 text-stone-muted leading-relaxed">
+          {site.format.online.description}
+        </p>
+        <div class="flex flex-wrap gap-2">
+          {
+            site.format.online.platforms.map((platform) => (
+              <span class="rounded-full bg-sage/10 px-4 py-1.5 text-sm font-medium text-sage">
+                {platform}
+              </span>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
