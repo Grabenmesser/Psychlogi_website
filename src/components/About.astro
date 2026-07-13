@@ -8,8 +8,19 @@ import site from '../content/site.json';
       <h2 class="section-title">{site.about.title}</h2>
     </div>
 
-    <div class="grid items-start gap-12 lg:grid-cols-5 lg:gap-16">
-      <div class="fade-in lg:col-span-3">
+    <div class="grid items-start gap-12 lg:grid-cols-2 lg:gap-16">
+      <div class="fade-in">
+        <img
+          src={site.psychologist.photo}
+          alt={`${site.psychologist.name} — психолог`}
+          class="mb-8 aspect-[4/5] w-full max-w-sm rounded-2xl object-cover shadow-card lg:mb-0"
+          width="400"
+          height="500"
+          loading="lazy"
+        />
+      </div>
+
+      <div class="fade-in space-y-6">
         <div class="space-y-5 text-lg leading-relaxed text-stone-muted">
           {
             site.about.paragraphs.map((paragraph) => (
@@ -17,12 +28,10 @@ import site from '../content/site.json';
             ))
           }
         </div>
-      </div>
 
-      <div class="fade-in lg:col-span-2">
-        <div class="card">
-          <h3 class="mb-6 font-serif text-2xl font-medium text-stone">Образование и опыт</h3>
-          <ul class="space-y-4">
+        <div class="card border-l-4 border-sage bg-sage/5">
+          <h3 class="mb-4 font-serif text-xl font-medium text-stone">Образование и опыт</h3>
+          <ul class="space-y-3">
             {
               site.about.credentials.map((item) => (
                 <li class="flex gap-3 text-stone-muted">
@@ -34,6 +43,9 @@ import site from '../content/site.json';
               ))
             }
           </ul>
+          {site.about.credentialsNote && (
+            <p class="mt-4 text-sm italic text-stone-muted/80">{site.about.credentialsNote}</p>
+          )}
         </div>
       </div>
     </div>

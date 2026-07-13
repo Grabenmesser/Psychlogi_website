@@ -6,6 +6,9 @@ import site from '../content/site.json';
   <div class="mx-auto max-w-6xl">
     <div class="fade-in mb-12 text-center">
       <h2 class="section-title">{site.process.title}</h2>
+      {site.process.subtitle && (
+        <p class="section-subtitle mx-auto">{site.process.subtitle}</p>
+      )}
     </div>
 
     <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">

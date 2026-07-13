@@ -1,0 +1,26 @@
+---
+import site from '../content/site.json';
+---
+
+<section id="testimonials" class="section-padding bg-white">
+  <div class="mx-auto max-w-6xl">
+    <div class="fade-in mb-12 text-center">
+      <h2 class="section-title">{site.testimonials.title}</h2>
+      <p class="section-subtitle mx-auto">{site.testimonials.subtitle}</p>
+    </div>
+
+    <div class="grid gap-6 md:grid-cols-3">
+      {
+        site.testimonials.items.map((item, index) => (
+          <div class="card fade-in flex flex-col" style={`transition-delay: ${index * 80}ms`}>
+            <svg class="mb-4 h-8 w-8 text-sage/40" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+            </svg>
+            <p class="mb-6 flex-1 text-stone-muted leading-relaxed">{item.text}</p>
+            <p class="text-sm font-medium text-sage">{item.author}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

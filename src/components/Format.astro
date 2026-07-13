@@ -6,9 +6,7 @@ import site from '../content/site.json';
   <div class="mx-auto max-w-6xl">
     <div class="fade-in mb-12 text-center">
       <h2 class="section-title">{site.format.title}</h2>
-      <p class="section-subtitle mx-auto">
-        Выберите удобный для вас способ — очно или онлайн
-      </p>
+      <p class="section-subtitle mx-auto">{site.format.subtitle}</p>
     </div>
 
     <div class="grid gap-8 md:grid-cols-2">
@@ -27,12 +25,12 @@ import site from '../content/site.json';
         </p>
         <p class="mb-4 font-medium text-stone">{site.format.offline.address}</p>
         <a
-          href={site.format.offline.mapUrl}
+          href={site.format.offline.linkUrl}
           target="_blank"
           rel="noopener noreferrer"
           class="inline-flex items-center gap-2 text-sage transition-colors hover:text-sage-dark"
         >
-          Открыть на карте
+          {site.format.offline.linkLabel}
           <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
           </svg>
@@ -51,14 +49,31 @@ import site from '../content/site.json';
         <p class="mb-4 text-stone-muted leading-relaxed">
           {site.format.online.description}
         </p>
-        <div class="flex flex-wrap gap-2">
-          {
-            site.format.online.platforms.map((platform) => (
-              <span class="rounded-full bg-sage/10 px-4 py-1.5 text-sm font-medium text-sage">
-                {platform}
-              </span>
-            ))
-          }
+        <div class="space-y-3">
+          <div>
+            <p class="mb-2 text-xs font-semibold uppercase tracking-wide text-stone-muted">Запись</p>
+            <div class="flex flex-wrap gap-2">
+              {
+                site.format.online.bookingPlatforms.map((platform) => (
+                  <span class="rounded-full bg-sage/10 px-4 py-1.5 text-sm font-medium text-sage">
+                    {platform}
+                  </span>
+                ))
+              }
+            </div>
+          </div>
+          <div>
+            <p class="mb-2 text-xs font-semibold uppercase tracking-wide text-stone-muted">Сессия</p>
+            <div class="flex flex-wrap gap-2">
+              {
+                site.format.online.sessionPlatforms.map((platform) => (
+                  <span class="rounded-full border border-sage/20 px-4 py-1.5 text-sm font-medium text-stone-muted">
+                    {platform}
+                  </span>
+                ))
+              }
+            </div>
+          </div>
         </div>
       </div>
     </div>

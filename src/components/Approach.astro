@@ -1,0 +1,26 @@
+---
+import site from '../content/site.json';
+---
+
+<section id="approach" class="section-padding bg-white">
+  <div class="mx-auto max-w-6xl">
+    <div class="fade-in mb-12 text-center">
+      <h2 class="section-title">{site.approach.title}</h2>
+      <p class="section-subtitle mx-auto">{site.approach.subtitle}</p>
+    </div>
+
+    <div class="grid gap-6 sm:grid-cols-2">
+      {
+        site.approach.items.map((item, index) => (
+          <div class="card fade-in" style={`transition-delay: ${index * 80}ms`}>
+            <div class="mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-sage text-sm font-bold text-white">
+              {index + 1}
+            </div>
+            <h3 class="mb-2 font-serif text-xl font-medium text-stone">{item.title}</h3>
+            <p class="text-stone-muted leading-relaxed">{item.description}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

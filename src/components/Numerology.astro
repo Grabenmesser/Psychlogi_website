@@ -1,0 +1,44 @@
+---
+import site from '../content/site.json';
+---
+
+<section id="numerology" class="section-padding">
+  <div class="mx-auto max-w-6xl">
+    <div class="fade-in overflow-hidden rounded-3xl bg-gradient-to-br from-sage/15 via-white to-sage/5 shadow-card">
+      <div class="grid gap-8 p-8 lg:grid-cols-2 lg:gap-12 lg:p-12">
+        <div>
+          <p class="mb-2 text-sm font-semibold uppercase tracking-widest text-sage">Уникальное направление</p>
+          <h2 class="mb-4 font-serif text-3xl font-medium text-stone sm:text-4xl">
+            {site.numerology.title}
+          </h2>
+          <p class="mb-6 text-lg text-stone-muted leading-relaxed">
+            {site.numerology.description}
+          </p>
+          <div class="flex items-baseline gap-3">
+            <span class="font-serif text-3xl font-medium text-sage">{site.numerology.price}</span>
+            <span class="text-stone-muted">{site.numerology.duration}</span>
+          </div>
+          <a href="#contact" class="btn-primary mt-6 inline-flex">
+            Записаться на разбор
+          </a>
+        </div>
+
+        <div class="card bg-white/80">
+          <h3 class="mb-4 font-serif text-xl font-medium text-stone">Что входит в разбор</h3>
+          <ul class="space-y-3">
+            {
+              site.numerology.includes.map((item) => (
+                <li class="flex gap-3 text-stone-muted">
+                  <svg class="mt-0.5 h-5 w-5 shrink-0 text-sage" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>{item}</span>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

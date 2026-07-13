@@ -1,0 +1,28 @@
+---
+import site from '../content/site.json';
+---
+
+<section class="section-padding bg-sage/5">
+  <div class="mx-auto max-w-6xl">
+    <div class="fade-in grid gap-10 lg:grid-cols-2 lg:items-center">
+      <blockquote class="font-serif text-2xl font-medium leading-relaxed text-stone sm:text-3xl">
+        «{site.forWhom.quote}»
+      </blockquote>
+      <div>
+        <h2 class="mb-6 font-serif text-2xl font-medium text-stone">Для кого моя работа</h2>
+        <ul class="space-y-3">
+          {
+            site.forWhom.items.map((item) => (
+              <li class="flex gap-3 text-stone-muted">
+                <svg class="mt-1 h-5 w-5 shrink-0 text-sage" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span>{item}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
