@@ -235,24 +235,7 @@
   },
   "testimonials": {
     "title": "Отзывы клиентов",
-    "subtitle": "Видеоотзывы и письменные отзывы клиентов о работе со мной",
-    "videos": [
-      {
-        "src": "/videos/testimonials/review-1.mp4",
-        "poster": "/images/testimonials/review-1.jpg",
-        "label": "Видеоотзыв клиента"
-      },
-      {
-        "src": "/videos/testimonials/review-2.mp4",
-        "poster": "/images/testimonials/review-2.jpg",
-        "label": "Видеоотзыв клиента"
-      },
-      {
-        "src": "/videos/testimonials/review-3.mp4",
-        "poster": "/images/testimonials/review-3.jpg",
-        "label": "Видеоотзыв клиента"
-      }
-    ]
+    "subtitle": "Письменные отзывы клиентов о работе со мной"
   },
   "faq": {
     "title": "Частые вопросы",

@@ -11,31 +11,6 @@ const marqueeReviews = [...reviews, ...reviews];
       <h2 class="section-title">{site.testimonials.title}</h2>
       <p class="section-subtitle mx-auto">{site.testimonials.subtitle}</p>
     </div>
-
-    {
-      site.testimonials.videos?.length > 0 && (
-        <div class="mb-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {site.testimonials.videos.map((video, index) => (
-            <div
-              class="fade-in overflow-hidden rounded-2xl bg-stone/5 shadow-card"
-              style={`transition-delay: ${index * 80}ms`}
-            >
-              <div class="relative aspect-[9/16] max-h-[520px] bg-stone/10">
-                <video
-                  class="testimonial-video h-full w-full object-cover"
-                  src={video.src}
-                  poster={video.poster}
-                  controls
-                  playsinline
-                  preload="metadata"
-                  aria-label={video.label || 'Видеоотзыв клиента'}
-                />
-              </div>
-            </div>
-          ))}
-        </div>
-      )
-    }
   </div>
 
   {
@@ -75,13 +50,3 @@ const marqueeReviews = [...reviews, ...reviews];
     )
   }
 </section>
-
-<script>
-  document.querySelectorAll('.testimonial-video').forEach((video) => {
-    video.addEventListener('play', () => {
-      document.querySelectorAll('.testimonial-video').forEach((other) => {
-        if (other !== video) other.pause();
-      });
-    });
-  });
-</script>
