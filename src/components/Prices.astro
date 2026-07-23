@@ -24,8 +24,12 @@ import site from '../content/site.json';
                 {item.badge}
               </span>
             )}
-            <h3 class="mb-2 font-serif text-xl font-medium text-stone">{item.name}</h3>
-            <p class="mb-4 text-sm text-stone-muted">{item.duration}</p>
+            <h3 class:list={['font-serif text-xl font-medium text-stone', item.duration ? 'mb-2' : 'mb-4']}>
+              {item.name}
+            </h3>
+            {item.duration && (
+              <p class="mb-4 text-sm text-stone-muted">{item.duration}</p>
+            )}
             {item.oldPrice && (
               <p class="text-sm text-stone-muted line-through">{item.oldPrice}</p>
             )}

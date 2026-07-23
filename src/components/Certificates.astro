@@ -1,0 +1,135 @@
+---
+import site from '../content/site.json';
+---
+
+<section id="certificates" class="section-padding bg-sage/5">
+  <div class="mx-auto max-w-6xl">
+    <div class="fade-in mb-12 text-center">
+      <h2 class="section-title">{site.certificates.title}</h2>
+      <p class="section-subtitle mx-auto">{site.certificates.subtitle}</p>
+    </div>
+
+    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        site.certificates.items.map((item, index) => (
+          <button
+            type="button"
+            class="cert-trigger group fade-in overflow-hidden rounded-2xl bg-white text-left shadow-card transition-shadow duration-300 hover:shadow-soft focus:outline-none focus:ring-2 focus:ring-sage focus:ring-offset-2"
+            style={`transition-delay: ${index * 80}ms`}
+            data-src={item.image}
+            data-title={item.title}
+            data-description={item.description}
+            aria-label={`Открыть сертификат: ${item.title}`}
+          >
+            <div class="aspect-[4/3] overflow-hidden bg-cream">
+              <img
+                src={item.image}
+                alt={item.title}
+                class="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
+                width="480"
+                height="360"
+                loading="lazy"
+              />
+            </div>
+            <div class="p-5">
+              <h3 class="mb-2 font-serif text-lg font-medium text-stone">{item.title}</h3>
+              <p class="text-sm leading-relaxed text-stone-muted">{item.description}</p>
+            </div>
+          </button>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<div
+  id="cert-lightbox"
+  class="fixed inset-0 z-[100] hidden items-center justify-center bg-stone/80 p-4 backdrop-blur-sm"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="cert-lightbox-title"
+  hidden
+>
+  <button
+    type="button"
+    id="cert-lightbox-backdrop"
+    class="absolute inset-0 cursor-default"
+    aria-label="Закрыть"
+  ></button>
+
+  <div class="relative z-10 flex max-h-[90vh] w-full max-w-4xl flex-col overflow-hidden rounded-2xl bg-white shadow-soft">
+    <div class="flex items-start justify-between gap-4 border-b border-stone/10 px-5 py-4">
+      <div class="min-w-0">
+        <h3 id="cert-lightbox-title" class="font-serif text-xl font-medium text-stone"></h3>
+        <p id="cert-lightbox-desc" class="mt-1 text-sm text-stone-muted"></p>
+      </div>
+      <button
+        type="button"
+        id="cert-lightbox-close"
+        class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-stone transition-colors hover:bg-sage/10 hover:text-sage"
+        aria-label="Закрыть"
+      >
+        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+    <div class="overflow-auto bg-cream/50 p-4 sm:p-6">
+      <img
+        id="cert-lightbox-img"
+        src=""
+        alt=""
+        class="mx-auto max-h-[70vh] w-auto max-w-full rounded-lg object-contain"
+      />
+    </div>
+  </div>
+</div>
+
+<script>
+  const lightbox = document.getElementById('cert-lightbox');
+  const lightboxImg = document.getElementById('cert-lightbox-img');
+  const lightboxTitle = document.getElementById('cert-lightbox-title');
+  const lightboxDesc = document.getElementById('cert-lightbox-desc');
+  const closeBtn = document.getElementById('cert-lightbox-close');
+  const backdrop = document.getElementById('cert-lightbox-backdrop');
+
+  function openLightbox(src, title, description) {
+    if (!lightbox || !lightboxImg || !lightboxTitle || !lightboxDesc) return;
+    lightboxImg.setAttribute('src', src);
+    lightboxImg.setAttribute('alt', title);
+    lightboxTitle.textContent = title;
+    lightboxDesc.textContent = description;
+    lightbox.hidden = false;
+    lightbox.classList.remove('hidden');
+    lightbox.classList.add('flex');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    if (!lightbox || !lightboxImg) return;
+    lightbox.hidden = true;
+    lightbox.classList.add('hidden');
+    lightbox.classList.remove('flex');
+    lightboxImg.setAttribute('src', '');
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('.cert-trigger').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      openLightbox(
+        btn.getAttribute('data-src') || '',
+        btn.getAttribute('data-title') || '',
+        btn.getAttribute('data-description') || ''
+      );
+    });
+  });
+
+  closeBtn?.addEventListener('click', closeLightbox);
+  backdrop?.addEventListener('click', closeLightbox);
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && lightbox && !lightbox.hidden) {
+      closeLightbox();
+    }
+  });
+</script>
